@@ -1,7 +1,3 @@
-Here's a **stronger, clearer, and more professional rewrite** of your project description, with improved structure, readability, and authority:
-
----
-
 # Homograph Attack Detector
 
 **Protect yourself from deceptive websites with real-time homograph attack detection.**
