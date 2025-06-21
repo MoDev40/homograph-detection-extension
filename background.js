@@ -40,6 +40,15 @@ async function checkAndBlock(url, tabId) {
 
 const tabUrls = {};
 
+// Handle messages from the blocked page
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "navigateToNewTab") {
+    chrome.tabs.create({ url: "chrome://newtab/" });
+    chrome.tabs.remove(sender.tab.id);
+  }
+  return true; // Keep the message channel open for async response
+});
+
 /**
  * Listens for URL updates in any tab
  * Sends a message with the current URL whenever a tab's URL changes
