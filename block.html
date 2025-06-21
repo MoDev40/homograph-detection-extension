@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blocked - Homograph Detection</title>
+    <link href="block.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h1>Access Blocked</h1>
+      <p class="message">
+        This page has been blocked due to potential homograph attack.
+      </p>
+      <button id="back" class="button">
+        <i class="fas fa-arrow-left"></i>
+        <span>Return to Safety</span>
+      </button>
+      <p class="info">
+        <i class="fas fa-info-circle"></i>
+        <span
+          >Homograph attacks can trick users with look-alike characters.</span
+        >
+      </p>
+    </div>
+    <!-- 
+    <script>
+      document.querySelector("#back").addEventListener("click", () => {
+        chrome.tabs.update({ url: "chrome://newtab/" });
+      });
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" role="main">
+        <h1 class="title">Current Tab URL</h1>
+        <div
+          id="url"
+          class="url-display"
+          role="textbox"
+          aria-label="Current URL"
+          tabindex="0"
+        >
+          Loading...
+        </div>
+
+        <div class="button-group">
+          <button
+            id="copyUrl"
+            class="button button-copy"
+            aria-label="Copy URL to clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+              ></path>
+            </svg>
+            Copy URL
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

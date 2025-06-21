@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Homograph attack detection",
+  "version": "1.0",
+  "description": "Real-time Homograph attack detection",
+  "permissions": ["tabs", "activeTab", "webNavigation"],
+  "host_permissions": ["https://fastapi-homograph-detector.onrender.com/*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; connect-src 'self' https://fastapi-homograph-detector.onrender.com;"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
