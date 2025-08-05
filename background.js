@@ -15,22 +15,45 @@ async function checkDomain(urls) {
   return await response.json();
 }
 
+async function sendNotification(message, title, priority) {
+  await chrome.notifications.create({
+    type: "basic",
+    iconUrl: "icons/icon48.png",
+    title,
+    message,
+    priority,
+  });
+}
+
 /**
  * Checks if the URL is a homograph attack and blocks it if it is.
  * @param {string} url - The URL to check
- * @param {number} tabId - The ID of the tab containing the URL
+ * @param {number} tabId - The ID of the current tab
  */
 async function checkAndBlock(url, tabId) {
   try {
     if (url.startsWith("chrome://") || url.startsWith("chrome-extension://"))
       return;
     const res = await checkDomain([url]);
-    if (res[0].label === 1) {
+    if (res[0].label === 0) {
+      // Show notification for safe domain
+      await sendNotification(
+        "This website appears to be safe from homograph attacks.",
+        "Safe Website",
+        1
+      );
+    } else {
+      // Show notification for unsafe domain
+      await sendNotification(
+        "This website appears to be unsafe from homograph attacks.",
+        "Unsafe Website",
+        1
+      );
+      await chrome.tabs.remove(tabId);
       await chrome.tabs.create({
         url: "block.html",
         active: true,
       });
-      await chrome.tabs.remove(tabId);
     }
     console.log(res);
   } catch (error) {

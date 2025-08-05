@@ -3,7 +3,7 @@
   "name": "Homograph attack detection",
   "version": "1.0",
   "description": "Real-time Homograph attack detection",
-  "permissions": ["tabs", "activeTab", "webNavigation", "scripting"],
+  "permissions": ["tabs", "activeTab", "webNavigation", "scripting", "notifications"],
   "host_permissions": ["https://fastapi-homograph-detector.onrender.com/*"],
   "web_accessible_resources": [
     {
